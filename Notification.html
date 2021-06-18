@@ -1,0 +1,30 @@
+<html>
+<script>
+if(Notification.permission === "granted"){
+notifyMe();
+}
+else if(Notification.permission !== "denied"){
+Notification.requestPermission().then(permission => {
+if( permission === "granted"){
+console.log('Permission is graNETD');
+notifyMe();
+})
+}
+function notifyMe() {
+console.log('Here are we');
+    // create a new notification
+    const notification = new Notification('JavaScript Notification API');
+
+    // navigate to a URL
+    notification.addEventListener('click', () => {
+        window.open('https://www.javascripttutorial.net/web-apis/javascript-notification/', '_blank');
+    });
+
+  // At last, if the user has denied notifications, and you
+  // want to be respectful there is no need to bother them any more.
+}
+</script>
+<body>
+<button onclick="notifyMe()">Notify me!</button>
+</body>
+</html
